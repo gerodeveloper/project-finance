@@ -1,0 +1,14 @@
+name: Finance
+prefix: Project Finance
+version: 0.0.1
+author: gerodeveloper
+api-version: 1.19
+main: de.gero.finance.FinancePlugin
+commands:
+  financetest:
+    aliases:
+      - fitest
+    description: Use Finance features without the GUI.
+    permission: finance.admin.test
+    permission-message: "You don't have the permission to use this command."
+    usage: "Please specify at least one argument."

@@ -1,25 +1,39 @@
 package de.gero.finance.api;
 
+import de.gero.finance.FinancePlugin;
+import org.bukkit.OfflinePlayer;
+
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Company {
     private String companyName;
-    private ArrayList<Entrepeneur> companyOwners;
 
-    public Company(String companyName, ArrayList<Entrepeneur> companyOwners) {
+    // TODO: Owners can own shares of different sizes
+    private ArrayList<UUID> companyOwners;
+
+    public Company(String companyName, ArrayList<UUID> companyOwners) {
         this.companyName = companyName;
         this.companyOwners = companyOwners;
     }
 
-    public void addOwner(Entrepeneur entrepeneur) {
-        this.companyOwners.add(entrepeneur);
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void removeOwner(Entrepeneur entrepeneur) {
-        this.companyOwners.remove(entrepeneur);
+    public ArrayList<UUID> getCompanyOwners() {
+        return companyOwners;
+    }
+
+    public void addOwner(UUID offlinePlayer) {
+        this.companyOwners.add(offlinePlayer);
+    }
+
+    public void removeOwner(UUID offlinePlayer) {
+        this.companyOwners.remove(offlinePlayer);
     }
 
     public void save() {
-        // TODO: Save Company information to storage provider.
+        FinancePlugin.getStorageProvider().saveCompany(this);
     }
 }
