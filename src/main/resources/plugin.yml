@@ -1,0 +1,10 @@
+name: Finance
+author: gerodeveloper
+version: 0.0.1
+api-version: 1.19
+main: de.gero.finance.FinancePlugin
+libraries:
+  - com.github.stefvanschie.inventoryframework:IF:0.10.8
+commands:
+  financetest:
+    name: financetest
